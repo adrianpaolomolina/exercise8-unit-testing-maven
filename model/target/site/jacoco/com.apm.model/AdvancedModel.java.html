@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AdvancedModel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Models</a> &gt; <a href="index.source.html" class="el_package">com.apm.model</a> &gt; <span class="el_source">AdvancedModel.java</span></div><h1>AdvancedModel.java</h1><pre class="source lang-java linenums">package com.apm.model;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+
+<span class="nc" id="L8">public class AdvancedModel {</span>
+
+<span class="nc" id="L10">  private ArrayList&lt;ArrayList&lt;String&gt;&gt; keyList = new ArrayList&lt;ArrayList&lt;String&gt;&gt;();</span>
+<span class="nc" id="L11">  private ArrayList&lt;ArrayList&lt;String&gt;&gt; valueList = new ArrayList&lt;ArrayList&lt;String&gt;&gt;();</span>
+  private File file;
+  private Scanner fileScan;
+<span class="nc" id="L14">  protected boolean overallOperation = true;</span>
+<span class="nc" id="L15">  protected boolean selectionOperation = false;</span>
+
+  public void addKeyString ( ArrayList&lt;String&gt; str ) {
+<span class="nc" id="L18">    this.keyList.add(str);</span>
+<span class="nc" id="L19">  }</span>
+
+  public void addValueString ( ArrayList&lt;String&gt; str ) {
+<span class="nc" id="L22">    this.valueList.add(str);</span>
+<span class="nc" id="L23">  }</span>
+
+  public void addKeyColumnVal ( int row, String str ) {
+<span class="nc" id="L26">    this.keyList.get(row).add(str);</span>
+<span class="nc" id="L27">  }</span>
+
+  public void addValueColumnVal ( int row, String str ) {
+<span class="nc" id="L30">    this.valueList.get(row).add(str);</span>
+<span class="nc" id="L31">  }</span>
+
+  public ArrayList&lt;ArrayList&lt;String&gt;&gt; getKeyList() {
+<span class="nc" id="L34">    return this.keyList;</span>
+  }
+
+  public ArrayList&lt;ArrayList&lt;String&gt;&gt; getValueList() {
+<span class="nc" id="L38">    return this.valueList;</span>
+  }
+
+  public Scanner getFileScan() {
+<span class="nc" id="L42">    return this.fileScan;</span>
+  }
+
+  public int getKeyListSize() {
+<span class="nc" id="L46">    return getKeyList().size();</span>
+  }
+
+  public int getValueListSize() {
+<span class="nc" id="L50">    return getValueList().size();</span>
+  }
+
+  public ArrayList&lt;String&gt; getKeyColumnValue ( int rowIncrement ) {
+<span class="nc" id="L54">    return getKeyList().get(rowIncrement);</span>
+  }
+
+  public ArrayList&lt;String&gt; getValueColumnValue ( int rowIncrement ) {
+<span class="nc" id="L58">    return getValueList().get(rowIncrement);</span>
+  }
+
+  public String getKeyColumnValue ( int rowIncrement, int columnIncrement ) {
+<span class="nc" id="L62">    return getKeyList().get(rowIncrement).get(columnIncrement);</span>
+  }
+
+  public String getValueColumnValue ( int rowIncrement, int columnIncrement ) {
+<span class="nc" id="L66">    return getValueList().get(rowIncrement).get(columnIncrement);</span>
+  }
+
+  public int getColumnSize ( int rowIncrement ) {
+<span class="nc" id="L70">    return getKeyList().get(rowIncrement).size();</span>
+  }
+
+  public void setFileScan ( String file ) {
+    try{
+<span class="nc" id="L75">      this.fileScan = new Scanner(new File(file));</span>
+<span class="nc" id="L76">    } catch ( FileNotFoundException e ) {</span>
+<span class="nc" id="L77">      }</span>
+<span class="nc" id="L78">  }</span>
+
+  public void setFile ( File file ) {
+<span class="nc" id="L81">    this.file = file;</span>
+<span class="nc" id="L82">  }</span>
+
+  public File getFile() {
+<span class="nc" id="L85">    return this.file;</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>
